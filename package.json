@@ -1,0 +1,30 @@
+{
+  "name": "olx-searcher",
+  "version": "1.0.0",
+  "homepage": "https://leonardolarrea.com",
+  "author": "Leonardo Larrea <leonardo.larrea1@gmail.com>",
+  "maintainers": [
+    "jalarrea <leonardo.larrea1@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jalarrea/olx-search.git"
+  },
+  "description": "olx scrapper searcher",
+  "main": "./searcher",
+  "dependencies": {
+    "cheerio": "*",
+    "request": "*"
+  },
+  "devDependencies": {
+    "chai": "~1.7.0",
+    "mocha": "~1.12.0",
+    "memorystream": "~0.2.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec"
+  },
+  "engines": {
+    "node": ">= 0.8"
+  }
+}
