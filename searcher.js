@@ -16,8 +16,6 @@ class Searcher {
     this.pages = options.pages || -1;
   }
 
-  //sys.inherits(Searcher, events.EventEmitter);
-
   start(){
     this.scrapPage();
   }
@@ -84,11 +82,11 @@ class Searcher {
     var gunzip = zlib.createGunzip();
     var bulk = "";
 
-    gunzip.on('data', (data)=>{
+    gunzip.on('data', (data) => {
       bulk += data.toString();
     });
 
-    gunzip.on('end',()=>{
+    gunzip.on('end',() => {
       const $ = cheerio.load(bulk);
       let info = $('#item_index_view').attr('data-item');
       cb(info);
@@ -101,23 +99,13 @@ class Searcher {
     const gunzip = zlib.createGunzip();
     let bulk = "";
 
-    gunzip.on('data', (data)=>{
+    gunzip.on('data', (data) => {
       bulk += data.toString();
     });
 
-    gunzip.on('end', ()=>{
+    gunzip.on('end', () => {
       const $ = cheerio.load(bulk);
-      $('.item').each(function() {
-        //  var title = $(this).find('.items-info').find("h3").text();
-        //  var location = $(this).find('.items-info').find(".displayLocation").text().replace("en ", "");
-        //  var price = $(this).find('.items-price').text().replace('\n','').trim();
-        //      regex = /\$\s*[0-9,]+(?:\s*\.\s*\d{2})?/g,
-        //      match = price.match(regex);
-        //  if(match){
-        //      match = match[0].replace(/\s/g,"");
-        //      price = match;
-        //  }
-        //  var priceType = $(this).find('.items-price span').text().replace('\n','').trim();
+      $('.item').each(() => {
          var url = 'https:'+($(this).find('a').attr('href'));
          var img = $(this).find('.items-image img').attr('src');
 
